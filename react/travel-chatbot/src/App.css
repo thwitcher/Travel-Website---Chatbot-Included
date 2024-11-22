@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensures it is above other elements */
+  background-color: #0084ff;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #0077cc;
+  }
+}
+
+.container {
+  position: fixed; /* Keeps the chat window above the button */
+  bottom: 80px; /* Position the chat window just above the button */
+  right: 20px; /* Align with the button's right edge */
+  width: 300px; /* Set a fixed width for the chat window */
+  background-color: white;
+  border-radius: 10px;
+  z-index: 999; /* Ensures it's above most elements */
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 70px auto;
+}
+
+.chat-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #eee;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.scrollable-section {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #f1f1f1;
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+
+  &.user {
+    background-color: #0084ff;
+    color: white;
+    align-self: flex-end;
+  }
+
+  .message-text {
+    font-size: 16px;
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid #f5f5f5;
+  padding-top: 10px;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.input-container button {
+  background-color: #0084ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+}
+
+.input-container span {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+@media screen and (max-width: 450px) {
+  .chat-container {
+    width: 100%;
+    max-height: 400px;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+}
